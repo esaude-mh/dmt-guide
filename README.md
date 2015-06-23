@@ -26,7 +26,7 @@ Import the dummy database.
   $ mysql -uroot -p
   mysql> create database dummy;
   mysql> use dummy;
-  mysql> \. resources/dummy-database-dump.sql
+  mysql> \. resources/source_medical_dummy.sql
 ````
 
 ### Step 4. Complete The Mapping Spreadsheet
