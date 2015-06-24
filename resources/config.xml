@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<!-- Migration Config Schema VERSION 0.1.0 -->
+
+	<!--
+		Changes log: Valério João - EGPAF (21/08/2014): Created basic structure
+                Changes log: Nyah Check - ( 23/06/2015): Modifications for Linux users
+	-->
+
+<config xmlns="http://schema.config.dmt.esaude.org" targetNamespace="http://schema.config.dmt.esaude.org">
+	<!-- the matching file in XLS info goes here -->
+	<matching_input>
+		<file_name>dummy-data-mapping_version</file_name> <!-- Fill in the appropriate file here -->
+		
+		<format>xls</format>
+		<location>/home/localhost/Documents/Code/OpenMRS/DMT/src/main/resources/</location> <!-- place the appropriate location of file -->
+	</matching_input>
+	<!-- the left side database info goes here -->
+	<targetDs>
+		<drive_name>org.mariadb.jdbc.Driver</drive_name> <!-- if you use mysql-connector(com.mysql.jdbc.Driver) -->
+		<username></username>                            <!-- fill in the appropriate database authentication details -->
+		<password></password>
+		<database_name>openmrs</database_name>
+		<database_location>jdbc:mysql://localhost:3306/</database_location>  <!-- Port 3306 or any other 3310, 3316 should work here -->
+	</targetDs>
+	<!-- the right side databases info goes here -->
+	<sourceDs>
+		<drive_name>org.mariadb.jdbc.Driver</drive_name>
+		<username></username>
+		<password></password>
+		<database_name>source_medical_dummy</database_name> <!-- Source database goes here -->
+		<database_location>jdbc:mysql://127.0.0.1:3306/</database_location>    <!-- appropriate location too -->
+	</sourceDs>
+	<!-- the limit number of trees to be processed, zero (0) or negative (-x) = unlimited -->
+	<tree_limit>0</tree_limit>
+	<!-- whether or not the results will be committed -->
+	<allow_commit>true</allow_commit>
+	<!-- whether the process should start from zero or last stopped point  -->
+	<reset_process>false</reset_process>
+</config>
