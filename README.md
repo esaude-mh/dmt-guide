@@ -43,8 +43,8 @@ Once the mappings have been correctly specified and the file has been downloaded
 
 ### Step 4. Linux Users Only
 
-I 1.) Install the MySQL/Mariadb database driver[MariaDB Connector](https://code.mariadb.com/connectors/java/).
-      Alternatively you can copy the mariadb connector.jar files to the appropriate /usr/lib/java*/jre/liib/ext/ directory
+I 1.) Install the MySQL/Mariadb java connector/driver[MariaDB Connector](https://code.mariadb.com/connectors/java/).
+      Alternatively you can copy the mariadb connector.jar files to the appropriate /usr/lib/java*/jre/lib/ext/ directory
   
   2.) Modify the [`config.xml`](https://github.com/esaude/dmt-guide/tree/master/resources/config.xml)
 
