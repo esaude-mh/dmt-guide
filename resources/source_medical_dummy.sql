@@ -6,18 +6,18 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema source_medical_dummy
+-- Schema dummy
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `source_medical_dummy` ;
-CREATE SCHEMA IF NOT EXISTS `source_medical_dummy` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `source_medical_dummy` ;
+DROP SCHEMA IF EXISTS `dummy` ;
+CREATE SCHEMA IF NOT EXISTS `dummy` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `dummy` ;
 
 -- -----------------------------------------------------
--- Table `source_medical_dummy`.`patient`
+-- Table `dummy`.`patient`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `source_medical_dummy`.`patient` ;
+DROP TABLE IF EXISTS `dummy`.`patient` ;
 
-CREATE TABLE IF NOT EXISTS `source_medical_dummy`.`patient` (
+CREATE TABLE IF NOT EXISTS `dummy`.`patient` (
   `patient_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(200) NULL,
   `surname` VARCHAR(200) NULL,
@@ -30,11 +30,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `source_medical_dummy`.`drug`
+-- Table `dummy`.`drug`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `source_medical_dummy`.`drug` ;
+DROP TABLE IF EXISTS `dummy`.`drug` ;
 
-CREATE TABLE IF NOT EXISTS `source_medical_dummy`.`drug` (
+CREATE TABLE IF NOT EXISTS `dummy`.`drug` (
   `drug_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`drug_id`))
@@ -42,11 +42,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `source_medical_dummy`.`drug_dispensation`
+-- Table `dummy`.`drug_dispensation`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `source_medical_dummy`.`drug_dispensation` ;
+DROP TABLE IF EXISTS `dummy`.`drug_dispensation` ;
 
-CREATE TABLE IF NOT EXISTS `source_medical_dummy`.`drug_dispensation` (
+CREATE TABLE IF NOT EXISTS `dummy`.`drug_dispensation` (
   `drug_dispensation_id` INT NOT NULL AUTO_INCREMENT,
   `drug_id` INT NOT NULL,
   `patient_id` INT NOT NULL,
@@ -57,12 +57,12 @@ CREATE TABLE IF NOT EXISTS `source_medical_dummy`.`drug_dispensation` (
   INDEX `drug_fk` (`drug_id` ASC),
   CONSTRAINT `pat_drg_disp_fk`
     FOREIGN KEY (`patient_id`)
-    REFERENCES `source_medical_dummy`.`patient` (`patient_id`)
+    REFERENCES `dummy`.`patient` (`patient_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `drg_drg_disp_fk`
     FOREIGN KEY (`drug_id`)
-    REFERENCES `source_medical_dummy`.`drug` (`drug_id`)
+    REFERENCES `dummy`.`drug` (`drug_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -73,37 +73,37 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `source_medical_dummy`.`patient`
+-- Data for table `dummy`.`patient`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `source_medical_dummy`;
-INSERT INTO `source_medical_dummy`.`patient` (`patient_id`, `name`, `surname`, `birthdate`, `address`, `identifier`) VALUES (1, 'Bruce', 'Wayne', '1984-02-12', 'Gotham City, 100', '0000001A');
-INSERT INTO `source_medical_dummy`.`patient` (`patient_id`, `name`, `surname`, `birthdate`, `address`, `identifier`) VALUES (2, 'Jack', 'Sparrow', '1975-05-10', 'Caribbean Village, 200', '0000001B');
-INSERT INTO `source_medical_dummy`.`patient` (`patient_id`, `name`, `surname`, `birthdate`, `address`, `identifier`) VALUES (3, 'Freddy', 'krueger', '2000-01-02', 'Helm Street, 400', '0000001C');
+USE `dummy`;
+INSERT INTO `dummy`.`patient` (`patient_id`, `name`, `surname`, `birthdate`, `address`, `identifier`) VALUES (1, 'Bruce', 'Wayne', '1984-02-12', 'Gotham City, 100', '0000001A');
+INSERT INTO `dummy`.`patient` (`patient_id`, `name`, `surname`, `birthdate`, `address`, `identifier`) VALUES (2, 'Jack', 'Sparrow', '1975-05-10', 'Caribbean Village, 200', '0000001B');
+INSERT INTO `dummy`.`patient` (`patient_id`, `name`, `surname`, `birthdate`, `address`, `identifier`) VALUES (3, 'Freddy', 'krueger', '2000-01-02', 'Helm Street, 400', '0000001C');
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `source_medical_dummy`.`drug`
+-- Data for table `dummy`.`drug`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `source_medical_dummy`;
-INSERT INTO `source_medical_dummy`.`drug` (`drug_id`, `name`) VALUES (1, 'Paracetamol');
-INSERT INTO `source_medical_dummy`.`drug` (`drug_id`, `name`) VALUES (2, 'Aspirin');
-INSERT INTO `source_medical_dummy`.`drug` (`drug_id`, `name`) VALUES (3, 'INH');
+USE `dummy`;
+INSERT INTO `dummy`.`drug` (`drug_id`, `name`) VALUES (1, 'Paracetamol');
+INSERT INTO `dummy`.`drug` (`drug_id`, `name`) VALUES (2, 'Aspirin');
+INSERT INTO `dummy`.`drug` (`drug_id`, `name`) VALUES (3, 'INH');
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `source_medical_dummy`.`drug_dispensation`
+-- Data for table `dummy`.`drug_dispensation`
 -- -----------------------------------------------------
 START TRANSACTION;
-USE `source_medical_dummy`;
-INSERT INTO `source_medical_dummy`.`drug_dispensation` (`drug_dispensation_id`, `drug_id`, `patient_id`, `quantity`, `date_dispensation`) VALUES (1, 1, 1, 10, '2015-01-01');
-INSERT INTO `source_medical_dummy`.`drug_dispensation` (`drug_dispensation_id`, `drug_id`, `patient_id`, `quantity`, `date_dispensation`) VALUES (2, 2, 2, 5, '2015-01-01');
-INSERT INTO `source_medical_dummy`.`drug_dispensation` (`drug_dispensation_id`, `drug_id`, `patient_id`, `quantity`, `date_dispensation`) VALUES (3, 3, 3, 15, '2015-01-01');
+USE `dummy`;
+INSERT INTO `dummy`.`drug_dispensation` (`drug_dispensation_id`, `drug_id`, `patient_id`, `quantity`, `date_dispensation`) VALUES (1, 1, 1, 10, '2015-01-01');
+INSERT INTO `dummy`.`drug_dispensation` (`drug_dispensation_id`, `drug_id`, `patient_id`, `quantity`, `date_dispensation`) VALUES (2, 2, 2, 5, '2015-01-01');
+INSERT INTO `dummy`.`drug_dispensation` (`drug_dispensation_id`, `drug_id`, `patient_id`, `quantity`, `date_dispensation`) VALUES (3, 3, 3, 15, '2015-01-01');
 
 COMMIT;
 
