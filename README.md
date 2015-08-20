@@ -6,17 +6,20 @@ This document will describe how to use the Data Migration Tool to migrate data f
 
 ### Step 1. Build The Data Migration Tool
 
-Clone the DMT repo and build it.
+Clone the DMT repo or DIT repo and build it.
 
 ````
   $ git clone https://github.com/esaude/data-migration-system.git
   $ cd data-migration-system
-  $ mvn clean install
+  $ mvn package
+This command generates a zip file for the data-migration-system.
 
  OR
-  $ mvn package 
+  $ git clone https://github.com/Ch3ck/openmrs-module-dataimporttool.git
+  $ cd openmrs-module-dataimporttool
+  $ mvn clean install 
   
-  This command generates a zip file for the data-migration-system.
+  Refer to module README for further instructions.
 ````
 
 ### Step 2. Install OpenMRS 1.11.3
