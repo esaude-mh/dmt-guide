@@ -39,9 +39,11 @@ Import the dummy database.
 
 ### Step 4. Complete The Mapping Spreadsheet
 
-The mapping sheet we are using can be download from [Google Sheets](https://docs.google.com/spreadsheets/d/1ljn2hyf9Qk3IFfQWYiCmuwgJxDWn2hnzX4m2dLhR0mk/edit#gid=1416522886).
+The mapping sheet we are using can be download from _ROOT_DIR/resouces/dummy-data-mapping-version.xls
 
 Once the mappings have been correctly specified and the file has been downloaded and saved. Update the `file_name` and `location` values in the [`config.xml`](https://github.com/esaude/data-migration-system/blob/master/src/main/resources/config.xml) file.
+
+Or Specify their locations in the migrations settings page for the DIT Module
 
 
 ### Step 4. Linux Users Only
@@ -49,12 +51,14 @@ Once the mappings have been correctly specified and the file has been downloaded
 I 1.) Install the MySQL/Mariadb java connector/driver[MariaDB Connector](https://code.mariadb.com/connectors/java/).
       Alternatively you can copy the mariadb connector.jar files to the appropriate /usr/lib/java*/jre/lib/ext/ directory
   
-  2.) Modify the [`config.xml`](https://github.com/esaude/dmt-guide/tree/master/resources/config.xml)
+  2.) Modify the [`config.xml`](https://github.com/esaude/dmt-guide/tree/master/resources/config.xml)(eSaude DMT Tool Only)
 
 
 ### Step 5. Run The DMT
 
 Execute the jar file `PROJECT_ROOT\data-migration-system-1.0-SNAPSHOT.jar` located in `PROJECT_ROOT\data-migration-system-[VERSION]`. Run the command `java -jar data-migration-system-[VERSION].jar`
+
+For further Instructions running the DIT Module consult the README of the module.
 
 ## Resources
 
