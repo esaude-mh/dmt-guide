@@ -1,12 +1,12 @@
 # Data Migration Tool Guide
 
-This document will describe how to use the Data Migration Tool to migrate data from a dummy database into OpenMRS.
+This document will describe how to use the Data Migration Tool or Data Import Tool to migrate data from a dummy database into OpenMRS.
 
 ## Instructions
 
 ### Step 1. Build The Data Migration Tool
 
-Clone the DMT repo or DIT repo and build it.
+Clone the DMT or DIT repo(s) and build it.
 
 ````
   $ git clone https://github.com/esaude/data-migration-system.git
